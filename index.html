@@ -36,10 +36,23 @@ section{padding:100px 8%}
 .gallery img:hover{
     transform:scale(1.05);
 }
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#111;padding:25px;border-radius:12px;text-align:center}
-.contact{text-align:center;line-height:2}
-footer{background:#111;padding:20px;text-align:center}
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    align-items:stretch;
+}
+
+.card{
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:120px;
+}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px;text-decoration:none}
 </style>
 </head>
@@ -83,7 +96,7 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 <h2 class="title">Services</h2>
 <div class="services">
 <div class="service-card" onclick="showWeddingGallery()">
-<h3>Wedding Photography</h3>
+   <h3>Wedding Photography</h3>
 </div>
 <div class="card"><h3>Pre Wedding Shoot</h3></div>
 <div class="card"><h3>Cinematic Video</h3></div>
