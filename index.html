@@ -575,6 +575,10 @@ cursor:pointer;
 background:#ff9900;
 color:white;
 }
+    #lightbox-img{
+cursor:grab;
+user-select:none;
+}
 </style>
 
 <script>
@@ -601,11 +605,40 @@ window.addEventListener("load",()=>{
     <script>
 
 let zoomLevel = 1;
+let isDragging = false;
+let startX, startY;
+let currentX = 0;
+let currentY = 0;
+        
+        const img = document.getElementById("lightbox-img");
 
+img.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+    img.style.cursor = "grabbing";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging || zoomLevel <= 1) return;
+
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+
+    img.style.transform =
+    `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    img.style.cursor = "grab";
+});
 function openImage(src){
 document.getElementById("lightbox").style.display="block";
 document.getElementById("lightbox-img").src=src;
 zoomLevel = 1;
+currentX = 0;
+currentY = 0;
 document.getElementById("lightbox-img").style.transform =
 "translate(-50%,-50%) scale(1)";
 }
@@ -616,15 +649,19 @@ document.getElementById("lightbox").style.display="none";
 
 function zoomIn(){
 zoomLevel += 0.2;
+
 document.getElementById("lightbox-img").style.transform =
-`translate(-50%,-50%) scale(${zoomLevel})`;
+`translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
 }
 
 function zoomOut(){
 if(zoomLevel > 1){
+
 zoomLevel -= 0.2;
+
 document.getElementById("lightbox-img").style.transform =
-`translate(-50%,-50%) scale(${zoomLevel})`;
+`translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
+
 }
 }
 
