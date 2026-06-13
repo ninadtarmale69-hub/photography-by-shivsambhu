@@ -159,16 +159,6 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
     </div>
 </section>
 
-<section id="contact" style="text-align:center;">
-<h2 class="title">Contact</h2>
-
-<div style="text-align:center;">
-<p>📞 +91 7499335124</p>
-<p>Instagram: @n.r.t_8750</p>
-<p><a href="https://wa.me/917499335124" style="color:#ff9900">Chat on WhatsApp</a></p>
-</div>
-</section>
-
 <footer style="text-align:center;">
   <footer class="footer">
 
@@ -453,7 +443,6 @@ color:#ff9900;
 
 .gallery{
 display:grid;
-}
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 padding:20px;
@@ -491,15 +480,16 @@ z-index:9999;
 }
 
 #lightbox img{
-max-width:90%;
-max-height:90%;
+max-width:none;
+max-height:none;
+width:auto;
+height:auto;
 position:absolute;
 top:50%;
 left:50%;
-transform:translate(-50%,-50%);
 border-radius:10px;
 }
-
+    
 #lightbox span{
 position:absolute;
 top:20px;
@@ -649,6 +639,9 @@ document.getElementById("lightbox-img").src=src;
 zoomLevel = 1;
 currentX = 0;
 currentY = 0;
+    
+    img.style.cursor = "grab";
+    
 document.getElementById("lightbox-img").style.transform =
 "translate(-50%,-50%) scale(1)";
 }
