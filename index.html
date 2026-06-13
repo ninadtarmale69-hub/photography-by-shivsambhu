@@ -612,27 +612,37 @@ let currentY = 0;
         
         const img = document.getElementById("lightbox-img");
 
-img.addEventListener("mousedown", (e) => {
+img.onmousedown = function(e){
+
+    if(zoomLevel <= 1) return;
+
     isDragging = true;
+
     startX = e.clientX - currentX;
     startY = e.clientY - currentY;
-    img.style.cursor = "grabbing";
-});
 
-document.addEventListener("mousemove", (e) => {
-    if (!isDragging || zoomLevel <= 1) return;
+    img.style.cursor = "grabbing";
+};
+
+document.onmousemove = function(e){
+
+    if(!isDragging) return;
 
     currentX = e.clientX - startX;
     currentY = e.clientY - startY;
 
     img.style.transform =
-    `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
-});
+    `translate(calc(-50% + ${currentX}px),
+    calc(-50% + ${currentY}px))
+    scale(${zoomLevel})`;
+};
 
-document.addEventListener("mouseup", () => {
+document.onmouseup = function(){
+
     isDragging = false;
+
     img.style.cursor = "grab";
-});
+};
 function openImage(src){
 document.getElementById("lightbox").style.display="block";
 document.getElementById("lightbox-img").src=src;
