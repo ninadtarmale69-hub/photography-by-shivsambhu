@@ -104,7 +104,7 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 <div class="gallery">
 
 <img src="IMG_20250827_002024.jpg" onclick="openImage(this.src)">
-<img src="ganpati2.jpg" onclick="openImage(this.src)">
+<img src="ganpatiphoto2.jpg" onclick="openImage(this.src)">
 
 </div>
 
@@ -423,6 +423,66 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 .whatsapp-icon {
     color: white;
 }
+    .gallery-category{
+text-align:center;
+margin-top:50px;
+font-size:30px;
+color:#ff9900;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 10px 30px rgba(255,153,0,.6);
+}
+
+/* Lightbox */
+
+#lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+z-index:9999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+border-radius:10px;
+}
+
+#lightbox span{
+position:absolute;
+top:20px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
 </style>
 
 <script>
@@ -446,6 +506,19 @@ window.addEventListener("load",()=>{
     },5500);
 
 });
+</script>
+    
+    <script>
+
+function openImage(src){
+document.getElementById("lightbox").style.display="block";
+document.getElementById("lightbox-img").src=src;
+}
+
+function closeImage(){
+document.getElementById("lightbox").style.display="none";
+}
+
 </script>
 </body>
 </html>
