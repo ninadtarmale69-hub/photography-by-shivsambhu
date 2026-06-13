@@ -83,45 +83,50 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 </p>
 </section>
 
-<section id="wedding">
-    <h2 class="title">Wedding Photography Gallery</h2>
+<section id="gallery">
 
-    <div class="gallery">
+<h2 class="section-title">My Photography Gallery</h2>
 
-        <a href="nikhil wedding 1.png" target="_blank">
-            <img src="nikhil wedding 1.png" alt="Wedding Photo">
-        </a>
+<!-- Wedding -->
+<h3 class="gallery-category">💍 Wedding Photography</h3>
 
-        <a href="Anikesh haldi-09933.jpg" target="_blank">
-            <img src="Anikesh haldi-09933.jpg" alt="Wedding Photo">
-        </a>
-    </div>
+<div class="gallery">
+
+<img src="wedding1.jpg" onclick="openImage(this.src)">
+<img src="wedding2.jpg" onclick="openImage(this.src)">
+
+</div>
+
+<!-- Ganpati -->
+
+<h3 class="gallery-category">🙏 Ganpati Photography</h3>
+
+<div class="gallery">
+
+<img src="ganpati1.jpg" onclick="openImage(this.src)">
+<img src="ganpati2.jpg" onclick="openImage(this.src)">
+
+</div>
+
+<!-- Event -->
+
+<h3 class="gallery-category">🎉 Event Photography</h3>
+
+<div class="gallery">
+
+<img src="event1.jpg" onclick="openImage(this.src)">
+<img src="event2.jpg" onclick="openImage(this.src)">
+
+</div>
+
 </section>
-    
-  <section id="events">
-    <h2 class="title">Event Photography Gallery</h2>
 
-    <div class="gallery">
-        <a href="event1.png" target="_blank">
-            <img src="event1.png" alt="Chhatrapati Shivaji Maharaj - Event Photo" loading="lazy">
-        </a>
-    </div>
-</section>
-    
-    <section id="cinematic">
-    <h2 class="title">Cinematic Gallery</h2>
+<!-- Lightbox -->
 
-    <div class="gallery">
-
-        <a href="IMG_20250827_002024.jpg" target="_blank">
-            <img src="IMG_20250827_002024.jpg" alt="Cinematic Photo">
-        </a>
-        
-        <a href="event2.png" target="_blank">
-            <img src="event2.png" alt="Cinematic Photo">
-        </a>
-    </div>
-</section>
+<div id="lightbox">
+<span onclick="closeImage()">✖</span>
+<img id="lightbox-img">
+</div>
     
 <section id="services">
     <h2 class="title">Services</h2>
