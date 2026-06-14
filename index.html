@@ -678,7 +678,13 @@ function zoomOut(){
 if(zoomLevel > 1){
 
 zoomLevel -= 0.2;
-
+    
+if(zoomLevel <= 1){
+    zoomLevel = 1;
+    currentX = 0;
+    currentY = 0;
+}
+    
 document.getElementById("lightbox-img").style.transform =
 `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
 
