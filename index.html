@@ -649,10 +649,20 @@ document.addEventListener("mouseup", function(){
 
 });
     
+function openImage(src){
+
+document.getElementById("lightbox").style.display="block";
+document.getElementById("lightbox-img").src=src;
+
+zoomLevel = 1;
+currentX = 0;
+currentY = 0;
+isDragging = false;
+
 document.getElementById("lightbox-img").style.transform =
 "translate(-50%,-50%) scale(1)";
-}
 
+}
 function closeImage(){
 document.getElementById("lightbox").style.display="none";
 }
