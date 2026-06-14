@@ -675,22 +675,32 @@ document.getElementById("lightbox-img").style.transform =
 }
 
 function zoomOut(){
+
 if(zoomLevel > 1){
 
 zoomLevel -= 0.2;
-    
+
 if(zoomLevel <= 1){
-    zoomLevel = 1;
-    currentX = 0;
-    currentY = 0;
-}
-    
+
+zoomLevel = 1;
+currentX = 0;
+currentY = 0;
+
 document.getElementById("lightbox-img").style.transform =
-`translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px)) scale(${zoomLevel})`;
+"translate(-50%,-50%) scale(1)";
+
+return;
 
 }
+
+document.getElementById("lightbox-img").style.transform =
+`translate(calc(-50% + ${currentX}px),
+calc(-50% + ${currentY}px))
+scale(${zoomLevel})`;
+
 }
 
+}
 </script>
      <script>
     document.getElementById("lightbox-img").addEventListener("wheel",function(e){
