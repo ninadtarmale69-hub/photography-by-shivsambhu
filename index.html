@@ -133,7 +133,19 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 <button onclick="zoomIn()">+</button>
 <button onclick="zoomOut()">−</button>
 </div>
+<div class="move-controls">
 
+<button onclick="moveUp()">⬆️</button>
+
+<div>
+<button onclick="moveLeft()">⬅️</button>
+<button onclick="moveRight()">➡️</button>
+</div>
+
+<button onclick="moveDown()">⬇️</button>
+
+</div>
+    
 <img id="lightbox-img">
 </div>
     
@@ -569,6 +581,25 @@ color:white;
 cursor:grab;
 user-select:none;
 }
+    .move-controls{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+z-index:10000;
+text-align:center;
+}
+
+.move-controls button{
+padding:12px 18px;
+margin:5px;
+font-size:22px;
+border:none;
+border-radius:10px;
+background:#ff9900;
+color:white;
+cursor:pointer;
+}
 </style>
 
 <script>
@@ -667,7 +698,49 @@ document.getElementById("lightbox-img").style.transform =
 
 }
 }
+function moveLeft(){
 
+currentX += 30;
+
+img.style.transform =
+`translate(calc(-50% + ${currentX}px),
+calc(-50% + ${currentY}px))
+scale(${zoomLevel})`;
+
+}
+
+function moveRight(){
+
+currentX -= 30;
+
+img.style.transform =
+`translate(calc(-50% + ${currentX}px),
+calc(-50% + ${currentY}px))
+scale(${zoomLevel})`;
+
+}
+
+function moveUp(){
+
+currentY += 30;
+
+img.style.transform =
+`translate(calc(-50% + ${currentX}px),
+calc(-50% + ${currentY}px))
+scale(${zoomLevel})`;
+
+}
+
+function moveDown(){
+
+currentY -= 30;
+
+img.style.transform =
+`translate(calc(-50% + ${currentX}px),
+calc(-50% + ${currentY}px))
+scale(${zoomLevel})`;
+
+}
 </script>
      <script>
     document.getElementById("lightbox-img").addEventListener("wheel",function(e){
