@@ -86,6 +86,29 @@ Wedding Photography, Pre Wedding Shoots, Portrait Photography, Events, Cinematic
 </p>
 </section>
 
+<section class="stats-section reveal">
+
+    <div class="stat-box">
+        <div class="stat-number">20+</div>
+        <div class="stat-text">Beautiful Moments</div>
+    </div>
+
+    <div class="stat-box">
+        <div class="stat-number">20+</div>
+        <div class="stat-text">Events Covered</div>
+    </div>
+
+    <div class="stat-box">
+        <div class="stat-number">25+</div>
+        <div class="stat-text">Happy Clients</div>
+    </div>
+
+    <div class="stat-box">
+        <div class="stat-number">100%</div>
+        <div class="stat-text">Passion & Creativity</div>
+    </div>
+
+</section>
 <section id="gallery" class="reveal">
 
 <h2 class="section-title">My Photography Gallery</h2>
@@ -612,6 +635,118 @@ filter:blur(0);
     transform:scale(1.04);
     box-shadow:0 15px 35px rgba(0,0,0,.45);
     filter:brightness(1.08);
+}
+    /* ===== PREMIUM STATS ===== */
+
+.stats-section{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:1100px;
+    margin:30px auto 80px;
+    padding:0 8%;
+}
+
+.stat-box{
+    background:linear-gradient(145deg,#151515,#0b0b0b);
+    border:1px solid rgba(255,153,0,.25);
+    border-radius:18px;
+    padding:30px 15px;
+    text-align:center;
+    transition:.4s ease;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+    border-color:#ff9900;
+    box-shadow:0 15px 35px rgba(255,153,0,.15);
+}
+
+.stat-number{
+    color:#ff9900;
+    font-size:36px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.stat-text{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .stats-section{
+        grid-template-columns:repeat(2,1fr);
+        padding:0 5%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .stats-section{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .stat-box{
+        padding:22px 8px;
+    }
+
+    .stat-number{
+        font-size:28px;
+    }
+
+    .stat-text{
+        font-size:13px;
+    }
+
+}
+    /* ===== PREMIUM SERVICE CARDS ===== */
+
+.card{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    transition:transform .4s ease, box-shadow .4s ease, border .4s ease;
+    border:1px solid transparent;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(255,153,0,.12),
+        transparent
+    );
+    opacity:0;
+    transition:.4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,153,0,.5);
+    box-shadow:0 15px 35px rgba(0,0,0,.5);
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card h3{
+    position:relative;
+    z-index:2;
+    transition:.3s ease;
+}
+
+.card:hover h3{
+    color:#ff9900;
+    transform:scale(1.05);
 }
 </style>
 
